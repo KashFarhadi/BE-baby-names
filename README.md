@@ -50,10 +50,11 @@ Suppose instead of printing the text to stdout, we want to write files containin
 Once the `--summaryfile` feature is working, run the program on all the files using * like this: `python babynames.py --summaryfile baby*.html`. This generates all the summaries in one step. (The standard behavior of the shell is that it expands the "baby*.html" pattern into the list of matching filenames, and then the shell runs babynames.py, passing in all those filenames in the sys.argv list.)
 
 With the data organized into summary files, you can see patterns over time with shell commands, like this:
-
-$ **grep 'Trinity ' *.summary**
-$ **grep 'Nick ' *.summary**
-$ **grep 'Miguel ' *.summary**
-$ **grep 'Emily ' *.summary**
+```
+$ grep 'Trinity ' *.summary
+$ grep 'Nick ' *.summary
+$ grep 'Miguel ' *.summary
+$ grep 'Emily ' *.summary
+```
 
 Regular expression hints -- year:  `r'Popularity\sin\s(\d\d\d\d)` names: `r'<td>(\d+)</td><td>(\w+)</td>\<td>(\w+)</td>'`
