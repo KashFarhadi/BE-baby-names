@@ -58,3 +58,11 @@ $ grep 'Emily ' *.summary
 ```
 
 Regular expression hints -- year:  `r'Popularity\sin\s(\d\d\d\d)` names: `r'<td>(\d+)</td><td>(\w+)</td>\<td>(\w+)</td>'`
+
+## Workflow for this Assignment
+1. *Fork* this repository into your own personal github account.
+2. Then *Clone* your own repo to your local development machine.
+3. Create a separate branch named `dev/your-github-username`, and checkout the branch.
+5. Commit your changes, then `git push` the branch back to your own github account.
+5. From your own Github repo, create a pull request (PR) from your dev branch back to your own master.
+6. Copy/Paste the URL **link to your PR** as your assignment submission.
