@@ -59,7 +59,9 @@ $ grep 'Miguel ' *.summary
 $ grep 'Emily ' *.summary
 ```
 
-Regular expression hints -- year:  `r'Popularity\sin\s(\d\d\d\d)` names: `r'<td>(\d+)</td><td>(\w+)</td>\<td>(\w+)</td>'`
+Regular expression hints
+- year:  `r'Popularity\sin\s(\d\d\d\d)`
+- names: `r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>'`
 
 ## Workflow for this Assignment
 1. *Fork* this repository into your own personal github account.
