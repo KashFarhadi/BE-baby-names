@@ -49,14 +49,19 @@ def extract_names(filename):
     return
 
 
-def main():
-    # This command-line parsing code is provided.
+def create_parser():
+    """Create a cmd line parser object with 2 argument definitions"""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--summaryfile', help='creates a summary file', action='store_true')
     # The nargs option instructs the parser to expect 1 or more filenames.
     # It will also expand wildcards just like the shell, e.g. 'baby*.html' will work.
     parser.add_argument('files', help='filename(s) to parse', nargs='+')
+    return parser
+
+
+def main():
+    parser = create_parser()
     args = parser.parse_args()
 
     if not args:
