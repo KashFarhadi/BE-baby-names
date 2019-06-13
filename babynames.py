@@ -45,8 +45,34 @@ def extract_names(filename):
     followed by the name-rank strings in alphabetical order.
     ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
     """
-    # +++your code here+++
-    return
+    names = []
+    girl_names = []
+    boy_names = []
+    with open(filename, 'r') as data:
+        text = data.read()
+        year_match = re.search(r'Popularity\sin\s(\d\d\d\d)', text) # search only allows for one parameter
+        name_match = re.finditer(r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>', text)
+    for name in name_match:
+        girl_names.append(name.group(3,1))
+        boy_names.append(name.group(2,1))
+    if not year_match:
+        print("Couldn't find the year")
+    year = year_match.group(1)
+    names.append(year)
+    full_list = boy_names + girl_names
+    sorted_list = sorted(full_list, key = lambda x: x[0])
+
+    str_list = []
+    for tuple_temp in sorted_list:
+        str_list.append(str(tuple_temp[0] + ' ' + str(tuple_temp[1])))
+    formatted_list = '\n'.join(str_list) + '\n'
+
+    print formatted_list
+    
+    # print str_list. this is a longer version of above code.
+    # print formatted_list
+    # sorted_girls = sorted(girl_names, key= lambda x:[1])
+    # sorted_boys = sorted(boy_names, key= lambda x:[1])
 
 
 def create_parser():
@@ -71,12 +97,20 @@ def main():
     file_list = args.files
 
     # option flag
-    create_summary = args.summaryfile
-
-    # +++your code here+++
     # For each filename, get the names, then either print the text output
     # or write it to a summary file
+    
+    create_summary = args.summaryfile
+    if create_summary:
+        for i in file_list:
+            with open(i+'.summary', 'w+') as a_file:
+                a_file.write(extract_names(i))
+        else:
+            for i in file_list:
+                print extract_names(i)
 
+
+extract_names('baby1990.html')
 
 if __name__ == '__main__':
     main()
